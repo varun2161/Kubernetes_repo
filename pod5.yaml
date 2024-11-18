@@ -1,0 +1,12 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: labelpod1
+  labels:
+   day: fri
+   class: kubernetes
+spec:
+  containers:
+  - name: c01
+    image: ubuntu
+    command: ["/bin/bash","-c","echo Hi!"]

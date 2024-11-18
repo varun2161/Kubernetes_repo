@@ -1,0 +1,19 @@
+kind: ReplicaSet
+apiVersion: apps/v1
+metadata:
+    name: replicasetpod
+spec:
+   replicas: 2
+   selector:
+       matchLabels:
+           myname: testpod
+   template:
+      metadata:
+          labels:
+             myname: testpod
+      spec:
+        containers:
+          - name: c00
+            image: ubuntu
+            command: ["/bin/bash","-c","while true; do echo Hello World!; sleep 5; done"]
+

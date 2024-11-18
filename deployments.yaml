@@ -1,0 +1,18 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+   name: deploymentpod
+spec:
+   replicas: 2
+   selector:
+     matchLabels:
+        myname: deployment1
+   template:
+      metadata:
+        labels:
+          myname: deployment1
+      spec:
+         containers:
+           - name: c00
+             image: ubuntu
+             command: ["/bin/bash","-c","while true; do echo hello-raj!; sleep 5; done;"]
