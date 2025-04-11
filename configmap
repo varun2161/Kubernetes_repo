@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: testpod
+spec:
+  containers:
+    - name: testcont1
+      image: ubuntu
+      command: ["/bin/bash", "-c", "while true; do echo Hello world; sleep 5; done"]
+      volumeMounts:
+        - name: config-volume
+          mountPath: /tmp/config
+  volumes:
+    - name: config-volume
+      configMap:
+        name: mymap
+        items:
+          - key: sample.conf
+            path: sample.conf
