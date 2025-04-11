@@ -1,3 +1,5 @@
+######## Create configmap before manifest execution ######
+# kubectl create configmap mymap --from-file=sample.conf #
 apiVersion: v1
 kind: Pod
 metadata:
